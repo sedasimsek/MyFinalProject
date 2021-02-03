@@ -20,8 +20,21 @@ namespace Business.Concrete
         {
             //iş kodları
             //Yetkisi var mı?
-            return _productDal.GetAll();
-            ;
+
+            return _productDal.GetAll(p=>p.CategoryId==2);
+           
         }
+
+        public List<Product> GetAllByCategoryId(int id)
+        {
+            return _productDal.GetAll(p=>p.CategoryId==id);
+        }
+
+        public List<Product> GetByUnitPrice(decimal min, decimal max)
+        {
+            return _productDal.GetAll(p => p.UnitPrice <= min && p.UnitPrice <= max);
+        }
+
+        
     }
 }
