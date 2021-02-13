@@ -20,6 +20,7 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
+        
         public IResult Add(Product product)
         {
             //business codes
@@ -38,7 +39,7 @@ namespace Business.Concrete
         {
             //İş kodları
             //Yetkisi var mı ?
-            if (DateTime.Now.Hour == 00)
+            if (DateTime.Now.Hour == 10)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
