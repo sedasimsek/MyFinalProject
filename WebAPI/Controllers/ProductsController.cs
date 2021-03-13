@@ -43,7 +43,7 @@ namespace WebAPI.Controllers
         public IActionResult Add(Product product)
         {
 
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
             var result = _productService.Add(product);
             if (result.Success)
             {
@@ -56,6 +56,17 @@ namespace WebAPI.Controllers
         public IActionResult GetById(int id)
         {
             var result = _productService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbycategory")]
+        public IActionResult GetByCategory(int categoryId)
+        {
+            var result = _productService.GetById(categoryId);
             if (result.Success)
             {
                 return Ok(result);
