@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core.Utilities.Extentions
+namespace Core.Extentions
 {
     public static class ServiceCollectionExtensions
     {
