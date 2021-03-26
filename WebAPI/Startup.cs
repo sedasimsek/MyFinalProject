@@ -47,7 +47,6 @@ namespace WebAPI
             //services.AddSingleton<IProductDal, EfProductDal>();
 
             services.AddCors();
-            
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -79,11 +78,10 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.ConfigureCustomExceptionMiddleware();
 
-            app.UseCors(builder=>builder.WithOrigins("http://localhost:55230/").AllowAnyHeader().AllowAnyOrigin());
-            
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -96,7 +94,7 @@ namespace WebAPI
             {
                 endpoints.MapControllers();
             });
-            
+            //23.10 dersteyiz
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
-using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
@@ -11,13 +12,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        ICategoryService _categoryService;
+        private ICategoryService _categoryService;
 
         public CategoriesController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }
-
 
         [HttpGet("getall")]
         public IActionResult GetAll()
@@ -28,6 +28,7 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+
         }
     }
 }
